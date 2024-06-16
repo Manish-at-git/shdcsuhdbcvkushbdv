@@ -33,11 +33,16 @@ export default function NavbarComponent() {
         <p className="text-[24px] font-semibold text-inherit">Exclusive</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-10" justify="center">
-        {menu.map((item) => {
-          if (item.text == "Sign Up" ) {
+        {menu.map((item, index) => {
+          if (item.text == "Sign Up") {
             return (
-              <NavbarItem>
-                <Button as={Link} color="primary" href={item.link} variant="flat">
+              <NavbarItem key={index}>
+                <Button
+                  as={Link}
+                  color="primary"
+                  href={item.link}
+                  variant="flat"
+                >
                   {item.text}
                 </Button>
               </NavbarItem>
