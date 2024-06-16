@@ -1,7 +1,8 @@
+import  filterTab  from "../../Slices/LoginStatus";
+import { apiSlice } from "@/app/apiSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { isRejectedWithValue } from "@reduxjs/toolkit";
 import type { MiddlewareAPI, Middleware } from "@reduxjs/toolkit";
-import { apiSlice } from "../apiSlice";
 
 
 export const rtkQueryErrorLogger: Middleware =
@@ -20,11 +21,12 @@ export const rtkQueryErrorLogger: Middleware =
 
 
 
+
+
 export const store = configureStore({
   reducer: {
-  
-    
-
+    [apiSlice.reducerPath]: apiSlice.reducer,
+    filterTab
   },
   middleware: (getDefaultMiddleware:any) =>
     getDefaultMiddleware().concat(

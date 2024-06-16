@@ -9,6 +9,8 @@ import {
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import MInput from "../Input/MInput";
+import { useSelector } from "react-redux";
+import authLoginState from "@/Slices/LoginStatus/index";
 
 export default function NavbarComponent() {
   const router = usePathname();
@@ -26,6 +28,8 @@ export default function NavbarComponent() {
       link: "/about",
     },
   ];
+  const loginStatus = useSelector((state) => state?.authLoginState);
+  console.log(loginStatus, "loginStatus");
 
   return (
     <Navbar className="border w-full">
